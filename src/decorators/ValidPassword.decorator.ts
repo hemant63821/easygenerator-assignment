@@ -26,7 +26,7 @@ export function IsValidPassword(validationOptions?: ValidationOptions) {
         propertyName: propertyName,
         constraints: [],
         options: validationOptions,
-        validator: IsValidPassword,
+        validator: ValidatePassword,
       });
     };
   }
