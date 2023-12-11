@@ -1,2 +1,1 @@
-# easygenerator-assignment
-Easygenerator Assignment Code (WebApp + Backend Server)
+# easygenerator-assignment-service (Backend Server)
