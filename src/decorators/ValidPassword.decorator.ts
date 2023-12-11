@@ -4,6 +4,10 @@ import { ValidationArguments, ValidationOptions, ValidatorConstraint, ValidatorC
 export class ValidatePassword implements ValidatorConstraintInterface
 {
   validate(value: any, args: ValidationArguments) {
+
+    if(!value)
+      return false;
+    
     const minLength = 8;
     const hasLetter = value.match(/[a-zA-Z]/);
     const hasNumber = value.match(/\d/);

@@ -17,9 +17,8 @@ export class AuthService {
     async create(payload: CreateUserDto): Promise<SuccessResponse | ErrorResponse> {
         const userExists = await this.userRepository.findOne({email : payload?.email})
         
-        if(userExists){
+        if(userExists)
             throw new HttpException('This Email Already exists!', HttpStatus.BAD_REQUEST);
-        }
 
         const hashedPassword = await bcrypt.hash(payload.password, 10);
         const user  = new this.userRepository();
@@ -31,7 +30,18 @@ export class AuthService {
     }
 
     async signIn(payload: UserDto): Promise<SuccessResponse | ErrorResponse> {
-        return null
+        
+        const userExists = await this.userRepository.findOne({email : payload.email});
+
+        if (!userExists) 
+            throw new HttpException('This email Does Not Exists! Please check your email', HttpStatus.BAD_REQUEST);
+
+        const passwordMatch = await bcrypt.compare(payload.password, userExists.password);
+
+        if (!passwordMatch) 
+            throw new HttpException('Invalid Password!', HttpStatus.BAD_REQUEST);
+
+        return new SuccessResponse({userName : userExists.name, email : userExists.email}, 'SUCCESS')
     }
 
     private getFormattedFullName = (userName : string) : string => {
