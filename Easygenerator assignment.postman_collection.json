@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "a3b69c2b-a336-4360-a0a4-b5f84f4f2b1c",
+		"name": "Easygenerator assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3028890",
+		"_collection_link": "https://restless-capsule-739378.postman.co/workspace/GoBillionCollection~10576e03-a22d-4500-8686-80f7088e4d25/collection/3028890-a3b69c2b-a336-4360-a0a4-b5f84f4f2b1c?action=share&source=collection_link&creator=3028890"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" :\"hemant gogoi\",\r\n    \"email\" : \"hemant1@gmail.com\",\r\n    \"password\" : \"Abc123###\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "sign in",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"Abc123###\",\r\n    \"email\" : \"hemant1@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8080/auth/sign-in"
+			},
+			"response": []
+		}
+	]
+}
