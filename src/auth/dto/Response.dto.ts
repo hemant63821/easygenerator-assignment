@@ -10,17 +10,17 @@
 // }
 
 export class ApiResponse{
-    constructor(public data: any, public message: string, public isSuccessful: boolean) {}
+    constructor(public isSuccessful: boolean, public data: any, public message: string, ) {}
   }
 
 export class SuccessResponse<T = any> extends ApiResponse {
     constructor(data: any, message = 'Success') {
-      super(data, message, true);
+      super(true, data, message);
     }
   }
   
   export class ErrorResponse extends ApiResponse {
     constructor(message = 'An error occurred') {
-      super(null, message, false);
+      super(false, null, message);
     }
   }
