@@ -3,9 +3,9 @@ import { Document } from "mongoose";
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({timestamps: true})
 export class User {
-    @Prop()
+    @Prop({ type : String})
     name: string;
 
     @Prop({ type : String, required : true, unique : true, index : true})
